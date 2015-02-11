@@ -7,8 +7,9 @@
     <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
 </head>
-
 <body> 
+
+
 
 <!--PAGINA ACCEDER-->
 <div data-role="page" id="acceder">
@@ -17,13 +18,28 @@
     </div>
 
     <div data-role="content">
-       <p>Area de contenido</p>
+       <p>ÁREA DE CONTENIDO</p>
+
+        <div data-role="fieldcontain">
+            <label for="name">Nombre:</label>
+            <input type="text" name="name" id="name" value=""  />
+        </div> 
+
+        <div data-role="fieldcontain">
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" value=""  />
+        </div>  
+
+       <!--<input type="submit" value="Submit Button" href="#page2"  data-inline="true"/>-->
+       <a href="#alumnos" data-role="button" data-icon="home" data-inline="true" data-theme="e">Acceder</a> 
     </div>
 
     <div data-role="footer">
        <h4>Copyright - All rights reserved by Esy</h4>
     </div>
 </div>
+
+
 
 <!--PAGINA ALUMNOS-->
 <div data-role="page" id="alumnos">
@@ -32,24 +48,107 @@
     </div>
 
     <div data-role="content">
-       <p>Pagina para seleccion curso y alumno</p>            
-    </div> 
+       <p>Selección de curso y alumno</p>
+        <!--<label for="search-basic">Buscar alumno:</label>
+        <input type="search" name="search" id="searc-basic" value="" data-inline="true"/>-->
+            <div data-role="fieldcontain">        
+            <!--<div data-role="collapsible" data-collapsed="false">
+                <h3>Grado Medio</h3>
+                    <fieldset data-role="controlgroup" name="radio-choice">                               
+                        <input type="radio" name="radio-choice" id="smr" value="smr" />
+                        <label for="smr">Sistemas Microinformáticos y Redes</label>
+
+                        <input type="radio" name="radio-choice" id="asir" value="asir" />
+                        <label for="asir">Administración de Sistemas Infromáticos en Red</label>  
+                    </fieldset>                  
+                </div><br/>                
+                <div data-role="collapsible">
+                <h3>Grado Superior</h3>
+                    <fieldset data-role="controlgroup" name="radio-choice">
+                        <input type="radio" name="radio-choice" id="dam" value="dam" />
+                        <label for="dam">Desarrollo de Aplicaciones Multiplataforma</label>
+
+                        <input type="radio" name="radio-choice" id="daw" value="daw" />
+                        <label for="daw">Desarrollo de Aplicaciones Web</label>
+                    </fieldset>
+                </div><hr/>-->                
+               <label for="curso" class="select">Seleccione el curso del alumno:</label>
+                   <select name="curso" id="curso">
+                       <optgroup label="Grado Medio">
+                            <option value="smr">Sistemas Microinformáticos y Redes</option>
+                            <option value="asir">Administración de Sistemas Infromáticos en Red</option>            
+                        </optgroup>
+                        <optgroup label="Grado Superior">
+                            <option value="dam">Desarrollo de Aplicaciones Multiplataforma</option>
+                            <option value="daw">Desarrollo de Aplicaciones Web</option>            
+                        </optgroup>
+                   </select>
+        
+                <label for="alumno" class="select">Seleccione al alumno que desee evaluar:</label>
+                    <select name="alumno" id="alumno" data-inline="true">
+                        <option>Nombre Apellido1 Apellido2</option>
+                        <option value="1">Alumno 01</option>
+                        <option value="2">Alumno 02</option>
+                        <option value="3">Alumno 03</option>
+                        <option value="4">Alumno 04</option>
+                        <option value="5">Alumno 05</option>
+                        <option value="6">Alumno 06</option>
+                        <option value="7">Alumno 07</option>
+                        <option value="8">Alumno 08</option>
+                        <option value="9">Alumno 09</option>
+                        <option value="10">Alumno 10</option>
+                    </select>            
+            </div> 
+
+       <!--<input type="submit" value="Submit Button" href="#page2"  data-inline="true"/>-->
+       <a href="#page1" data-role="button" data-icon="home" data-inline="true" data-theme="e">Acceder a su evaluación</a> 
+    </div>
 
     <div data-role="footer">
        <h4>Copyright - All rights reserved by Esy</h4>
     </div>
 </div>
 
+
+
 <!--PAGINA 1-->
 <div data-role="page" id="page1" data-theme="c">   
     <div data-role="header">
+        <!--<input type="reset" value="Reset Button" />-->
         <a href="#cancelar" data-icon="delete"  data-role="button" data-theme="a" data-rel="dialog">Cancelar</a>
             <h1>Contenido del proyecto</h1>
         <a href="#guardar" data-icon="check" data-role="button" data-theme="e" data-rel="dialog">Guardar</a>
+    
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#page1" class="ui-btn-active ui-state-persist">Contenido: 6,5 ptos</a></li>
+                <li><a href="#page2">Calidad: 1 pto</a></li>
+                <li><a href="#page3">Expresion: 2,5 ptos</a></li>
+            </ul>
+        </div>
     </div>
 
     <div data-role="content">
-        <h1>Pantalla 1</h1>    
+        <!--<div div data-role="controlgroup" data-type="horizontal">
+            <a href="#page1" data-theme="d" data-role="button" class="ui-btn-active ui-state-persist">Contenido</a>
+            <a href="#page2" data-theme="d" data-role="button">Calidad</a>
+            <a href="#page3" data-theme="d" data-role="button">Expresion</a>            
+        </div>-->
+        <h1> Pantalla 1 </h1>
+        <div data-role="collapsible" data-theme="b" data-content-theme="b">
+            <h3>Planteamiento</h3>
+            <p>Objetivos, Recursos utilizados, Destinatarios, Justificación del proyecto</p>
+        </div>
+
+        <div data-role="collapsible" data-theme="e" data-content-theme="b">
+            <h3>Contenido</h3>
+            <p>Metodología seguida, Claridad, Actividades o acciones realizadas, Documentación elaborada</p>
+        </div>
+
+        <div data-role="collapsible" data-theme="e" data-content-theme="e">
+            <h3>Resultados obtenidos</h3>
+            <p>Conclusiones, Objetivos conseguidos y grado de consecución</p>
+        </div>    
     </div>
      
     <div data-role="footer">
@@ -57,23 +156,38 @@
     </div>
 </div>
 
+
+
 <!--PAGINA 2-->
 <div data-role="page" id="page2">
    <div data-role="header">
         <a href="#cancelar" data-icon="delete"  data-role="button" data-theme="a" data-rel="dialog">Cancelar</a>
             <h1>Calidad de la presentación</h1>
         <a href="#guardar" data-icon="check" data-role="button" data-theme="e" data-rel="dialog">Guardar</a>
+
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#page1">Contenido: 6,5 ptos</a></li>
+                <li><a href="#page2" class="ui-btn-active ui-state-persist">Calidad: 1 pto</a></li>
+                <li><a href="#page3">Expresion: 2,5 ptos</a></li>
+            </ul>
         </div>
     </div>
 
     <div data-role="content">    
-        <h1>Pantalla 2</h1>
+        <h1> Pantalla 2 </h1>
+        <div data-inline="true">
+            <a href="page" data-role="button" data-theme="e">Cancelar</a>
+            <a href="#guardar" data-transition="pop" data-role="button" data-theme="b">Guardar nota</a>
+        </div>
     </div>
 
     <div data-role="footer">
        <h4>Copyright - All rights reserved by Esy</h4>
     </div>
 </div>
+
+
 
 <!--PAGINA 3-->
 <div data-role="page" id="page3">
@@ -81,16 +195,27 @@
         <a href="#cancelar" data-icon="delete"  data-role="button" data-theme="a" data-rel="dialog">Cancelar</a>
             <h1>Expresión oral</h1>
         <a href="#guardar" data-icon="check" data-role="button" data-theme="e" data-rel="dialog">Guardar</a>
+
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#page1">Contenido: 6,5 ptos</a></li>
+                <li><a href="#page2">Calidad: 1pto</a></li>
+                <li><a href="#page3" class="ui-btn-active ui-state-persist">Expresión: 6,5 ptos</a></li>
+            </ul>
+        </div>
     </div>
 
     <div data-role="content">    
-        <h1>Pantalla 3</h1>
+        <h1> Pantalla 3 </h1>
+
     </div>
 
     <div data-role="footer">
        <h4>Copyright - All rights reserved by Esy</h4>
     </div>
 </div>
+
+
 
 <!--PAGINA GUARDAR-->
 <div data-role="page" id="guardar">
@@ -99,9 +224,16 @@
     </div>
 
     <div data-role="content">
-        <h1>Correcíon guardada</h1>        
+        <h2>¡Corección guardada correctamente!</h2>
+        <p>¿Qué desea hacer a continuación?</p>
+
+        <a data-role="button" data-icon="forward" data-theme="e" data-rel="back" data-shadow="true" data-iconpos="right">Continuar</a>
+        <a data-role="button" data-icon="home" data-theme="b" href="#acceder" data-shadow="true">Finalizar</a>
+        
     </div>
 </div>
+
+
 
 <!--PAGINA CANCELAR-->
 <div data-role="page" id="cancelar">
@@ -110,7 +242,10 @@
     </div>
 
     <div data-role="content">
-        <h1>Pagina que permite eliminar</h1>
+        <p> ¿Está seguro de que desea eliminar la corección en curso?</p>
+        
+        <a data-role="button" data-icon="delete" data-theme="e" href="#acceder" data-iconpos="right">Sí</a>
+        <a data-role="button" data-icon="back" data-theme="b" data-rel="back">No</a>
     </div>
 </div>
 
