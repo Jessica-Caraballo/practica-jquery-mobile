@@ -1,4 +1,4 @@
-/*Obliga a completar usuario y contraseña*/
+/*Obliga completar usuario y contraseña*/
 $("input[type=submit]").click(function(e) {
     $nombre = $("#nombre").val();
      $password = $("#password").val();
@@ -11,8 +11,8 @@ $("input[type=submit]").click(function(e) {
 });
 
 /*Muestra en la bienvenida el nombre de usuario del profesor*/
-$('#alumnos').live('pagebeforeshow',function(event, ui){
-    $('#mensaje').text($('#nombre').val());
+$('#nombre').on('change', function(){
+    $('#mensaje').html($('#nombre').val());
 });
 
 /*Muestra el nombre del alumno cuando se guarda la nota*/
@@ -20,7 +20,7 @@ $('#selectAlumno').on('change', function(){
     $('#alumno').html($('#selectAlumno').val());
 });
 
-/*Obliga que seleccione curso y alumno*/
+/*Obliga seleccionar curso y alumno*/
 $("#evaluar").click(function(e) {
         if ($("#selectAlumno").val() == '' || $("#curso").val() == '') {
             e.preventDefault();
@@ -30,7 +30,7 @@ $("#evaluar").click(function(e) {
         }
 });
 
-/*Muestra la nota, y la actualiza*/
+/*Muestra la nota en la pagina final, y la actualiza*/
 $('#pagina').on("pageshow",function(){
     $('#nota1_1').on('change', function(){
         $('#nota').html(
