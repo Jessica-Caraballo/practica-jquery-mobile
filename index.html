@@ -1,39 +1,37 @@
 <html> 
 <head> 
     <title>Jessica_AplicacionWeb</title>     
+        <!--Configuro el viewport para ajustarse dinámicamente al tamaño de cada dispositivo-->
     <meta name="viewport" content="width=device-width, initial-scale=1"> 
     <meta charset="UTF-8"/>
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.css" />
-    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"></script>
+        <!--Cargo los cuatro temas propios: a b c d-->
+    <link rel="stylesheet" href="css/themes/jessi.css" />
+    <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />    
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" /> 
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> 
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>     
 </head>
-<body> 
 
-
-
+<body id="pagina"> 
 <!--PAGINA ACCEDER-->
-<div data-role="page" id="acceder">
+<div data-role="page" id="acceder" data-theme="a">
     <div data-role="header">
        <p>Login Profesorado</p>
     </div>
 
     <div data-role="content">
-       <p>ÁREA DE CONTENIDO</p>
-
+       <p>Debe loguearse para acceder a la aplicación:</p>
         <div data-role="fieldcontain">
-            <label for="name">Nombre:</label>
-            <input type="text" name="name" id="name" value=""  />
+            <label for="nombre">Usuario:</label>
+            <input type="text" name="nombre" id="nombre" value=""   data-theme="c"/>
         </div> 
 
         <div data-role="fieldcontain">
-            <label for="password">Password:</label>
-            <input type="password" name="password" id="password" value=""  />
+            <label for="password">Contraseña:</label>
+            <input type="password" name="password" id="password" value=""   data-theme="c"/>
         </div>  
 
-       <!--<input type="submit" value="Submit Button" href="#page2"  data-inline="true"/>-->
-       <a href="#alumnos" data-transition="flip" data-role="button" data-icon="home" data-inline="true" data-theme="e">Acceder</a><br/>
-
-       <a href="#recordarPass" data-transition="flip" data-icon="home" data-inline="true" data-theme="e" data-rel="dialog">¿Ha olvidado su usuario/contraseña?</a> 
+       <input type="submit" id="enviame" data-inline="true" value="Acceder" data-icon="home"/><br/>
     </div>
 
     <div data-role="footer">
@@ -42,38 +40,20 @@
 </div>
 
 
+
 <!--PAGINA ALUMNOS-->
-<div data-role="page" id="alumnos">
+<div data-role="page" id="alumnos" data-theme="a">
     <div data-role="header">
        <p>Selección del alumno</p>
     </div>
 
     <div data-role="content">
-        <!--<label for="search-basic">Buscar alumno:</label>
-        <input type="search" name="search" id="searc-basic" value="" data-inline="true"/>-->
             <div data-role="fieldcontain">        
-            <!--<div data-role="collapsible" data-collapsed="false">
-                <h3>Grado Medio</h3>
-                    <fieldset data-role="controlgroup" name="radio-choice">                               
-                        <input type="radio" name="radio-choice" id="smr" value="smr" />
-                        <label for="smr">Sistemas Microinformáticos y Redes</label>
+            <h1>¡<span id="mensaje"></span>, bienvenido/a a la plataforma de evaluación!</h1>
 
-                        <input type="radio" name="radio-choice" id="asir" value="asir" />
-                        <label for="asir">Administración de Sistemas Infromáticos en Red</label>  
-                    </fieldset>                  
-                </div><br/>                
-                <div data-role="collapsible">
-                <h3>Grado Superior</h3>
-                    <fieldset data-role="controlgroup" name="radio-choice">
-                        <input type="radio" name="radio-choice" id="dam" value="dam" />
-                        <label for="dam">Desarrollo de Aplicaciones Multiplataforma</label>
-
-                        <input type="radio" name="radio-choice" id="daw" value="daw" />
-                        <label for="daw">Desarrollo de Aplicaciones Web</label>
-                    </fieldset>
-                </div><hr/>-->                
                <label for="curso" class="select">Seleccione el curso del alumno:</label>
-                   <select name="curso" id="curso">
+                   <select name="curso" id="curso" data-theme="c">
+                            <option value="">Seleccione el curso</option>
                        <optgroup label="Grado Medio">
                             <option value="smr">Sistemas Microinformáticos y Redes</option>
                             <option value="asir">Administración de Sistemas Infromáticos en Red</option>            
@@ -82,27 +62,25 @@
                             <option value="dam">Desarrollo de Aplicaciones Multiplataforma</option>
                             <option value="daw">Desarrollo de Aplicaciones Web</option>            
                         </optgroup>
-                   </select>
+                   </select><br/>
         
-                <label for="alumno" class="select">Seleccione al alumno que desee evaluar:</label>
-                    <select name="alumno" id="alumno" data-inline="true">
-                        <option>Nombre Apellido1 Apellido2</option>
-                        <option value="1">Alumno 01</option>
-                        <option value="2">Alumno 02</option>
-                        <option value="3">Alumno 03</option>
-                        <option value="4">Alumno 04</option>
-                        <option value="5">Alumno 05</option>
-                        <option value="6">Alumno 06</option>
-                        <option value="7">Alumno 07</option>
-                        <option value="8">Alumno 08</option>
-                        <option value="9">Alumno 09</option>
-                        <option value="10">Alumno 10</option>
+                <label for="selectAlumno" class="select">Seleccione al alumno que desee evaluar:</label>
+                    <select name="selectAlumno" id="selectAlumno" data-inline="true" data-theme="c">
+                        <option value="">Seleccione al alumno</option>
+                        <option value="Manuel Perez">Manuel Perez</option>
+                        <option value="Adrian Avio">Adrian Avio</option>
+                        <option value="Elisa Matinez">Elisa Matinez</option>
+                        <option value="Roberto Linares">Roberto Linares</option>
+                        <option value="Agustin Bravo">Agustin Bravo</option>
+                        <option value="Beatriz Marco">Beatriz Marco</option>
+                        <option value="Ignacio Martin">Ignacio Martin</option>
+                        <option value="Natalia Andreu">Natalia Andreu</option>
+                        <option value="Deisy Lopez">Deisy Lopez</option>
+                        <option value="Daniel Estrada">Daniel Estrada</option>
                     </select>            
             </div> 
 
-       <!--<input type="submit" value="Submit Button" href="#page2"  data-inline="true"/>-->
-       <a href="#page1" data-transition="slideup" data-role="button" data-icon="home" data-inline="true" data-theme="e">
-       Evaluación del alumno</a> 
+       <input type="submit" id="evaluar" data-inline="true" value="Evaluacion" data-icon="home"/><br/>
     </div>
 
     <div data-role="footer">
@@ -113,258 +91,168 @@
 
 
 <!--PAGINA 1-->
-<div data-role="page" id="page1" data-theme="c">   
+<div data-role="page" id="page1" data-theme="a">   
     <div data-role="header">
-        <!--<input type="reset" value="Reset Button" />-->
-        <a href="#cancelar" data-transition="slideup" data-icon="delete" data-role="button" data-theme="a" data-rel="dialog">Cancelar</a>
+        <a href="#salir" data-transition="slideup" data-icon="delete" data-role="button"data-rel="dialog">Salir</a>
             <h1>Contenido del proyecto</h1>
-        <a href="#guardar" data-transition="slidedown"data-icon="check" data-role="button" data-theme="e" data-rel="dialog">Guardar</a>
+        <a href="#guardar" data-transition="slidedown"data-icon="check" data-role="button" data-rel="dialog">Guardar</a>
     
-        <div data-role="navbar">
+        <div data-role="navbar" >
             <ul>
-                <li><a href="#page1" data-transition="pop" class="ui-btn-active ui-state-persist">Contenido: 6,5 ptos</a></li>
-                <li><a href="#page2" data-transition="pop">Calidad: 1 pto</a></li>
-                <li><a href="#page3" data-transition="pop">Expresion: 2,5 ptos</a></li>
+                <li><a href="#page1" data-transition="pop" data-theme="c"class="ui-btn-active ui-state-persist">Contenido: 6,5 ptos</a></li>
+                <li><a href="#page2" data-transition="pop" data-theme="c">Calidad: 1 pto</a></li>
+                <li><a href="#page3" data-transition="pop" data-theme="c">Expresion: 2,5 ptos</a></li>
             </ul>
         </div>
     </div>
 
-    <!--<div data-role="content">
-        <h1> Pantalla 1 </h1>
-        <div data-role="collapsible" data-theme="b" data-content-theme="b">
-            <h3>Planteamiento</h3>
-            <div data-role="fieldcontain">
-                <fieldset data-role="controlgroup">
-                   <legend>Detalles a evaluar:</legend>
-                    <input type="checkbox" name="objetivos" id="objetivos" class="custom" data-mini="true" data-theme="c"/>
-                        <label for="objetivos">Objetivos</label>
-
-                    <input type="checkbox" name="recursos" id="recursos" class="custom" data-mini="true" data-theme="d"/>
-                        <label for="recursos">Recursos utilizados</label>
-
-                    <input type="checkbox" name="destinatarios" id="destinatarios" class="custom" data-mini="true" data-theme="c"/>
-                        <label for="destinatarios">Destinatarios</label>
-
-                    <input type="checkbox" name="justificacion" id="justificacion" class="custom" data-mini="true" data-theme="c"/>
-                        <label for="justificacion">Justificación del proyecto</label>
-
-                </fieldset>
-                <div data-role="fieldcontain">
-                    <label for="slider-3">¿El planteamiento es adecuado? Nota:</label>
-                    <input style="width:75px" width="35px" type="range" step="0.1" name="planteamiento" id="planteamiento3" value="1.0" min="0" max="2.0" data-theme="a" data-track-theme="b" />
-                </div>
-            </div>
-
-
-
-        </div>
-
-        <div data-role="collapsible" data-theme="b" data-content-theme="b">
-            <h3>Contenido</h3>
-            <div data-role="fieldcontain">
-                <fieldset data-role="controlgroup">
-                   <legend>Detalles a evaluar:</legend>
-                    <input type="checkbox" name="metodologia" id="metodologia" class="custom" data-mini="true" data-theme="c"/>
-                        <label for="metodologia">Metodología seguida</label>
-
-                    <input type="checkbox" name="claridad" id="claridad" class="custom" data-mini="true" data-theme="d"/>
-                        <label for="claridad">Claridad</label>
-
-                    <input type="checkbox" name="accionesRealizadas" id="accionesRealizadas" class="custom" data-mini="true" data-theme="c"/>
-                        <label for="accionesRealizadas">Actividades o acciones realizadas</label>
-
-                    <input type="checkbox" name="documentacion" id="documentacion" class="custom" data-mini="true" data-theme="c"/>
-                        <label for="documentacion">Documentación elaborada</label>
-
-                </fieldset>
-                <div data-role="fieldcontain">
-                    <label for="slider-3">¿El contenido es correcto? Nota:</label>
-                    <input style="width:75px" width="35px" type="range" step="0.1" name="contenido" id="contenido" value="1.0" min="0" max="2.0" data-theme="a" data-track-theme="b" />
-                </div>
-            </div>
-        </div>
-
-        <div data-role="collapsible" data-theme="b" data-content-theme="e">
-            <h3>Resultados obtenidos</h3>
-            <div data-role="fieldcontain">
-                <fieldset data-role="controlgroup">
-                   <legend>Detalles a evaluar:</legend>
-                    <input type="checkbox" name="conclusiones" id="conclusiones" class="custom" data-mini="true" data-theme="c"/>
-                        <label for="conclusiones">Conclusiones</label>
-                            <textarea name="conclusiones" id="conclusiones-e" placeholder="¿A qué conclusiones ha llegado?">
-                            
-                        </textarea>
-
-                    <input type="checkbox" name="objetivosConseguidos" id="objetivosConseguidos" class="custom" data-mini="true" data-theme="d"/>
-                        <label for="objetivosConseguidos">Objetivos conseguidos</label>
-
-                    <input type="checkbox" name="consecucion" id="consecucion" class="custom" data-mini="true" data-theme="c"/>
-                        <label for="consecucion">Grado de consecución</label>
-
-                </fieldset>
-                <div data-role="fieldcontain">
-                    <label for="slider-3">¿Ha obtenido buenos resultados? Nota:</label>
-                    <input style="width:75px" width="35px" type="range" step="0.1" name="resultados" id="resultados" value="1.25" min="0" max="2.5" data-theme="a" data-track-theme="b" />
-                </div>
-            </div>
-        </div>   
-
-         
-    </div>-->
     <div data-role="content">    
-        <h1> Pantalla 1 </h1>
-       <!--Grillas con tres columnas-->
-        <div class="ui-grid-b">
+        <!--<h1> Pantalla 1 </h1>-->
+       <!--Grillas con dos columnas-->
+        <div class="ui-grid-a">
             <!--Columna 1, Fila 1-->
             <div class="ui-block-a" >
-                <div class="ui-bar ui-bar-e">
+                <div class="ui-bar ui-bar-d">
                    <h3>Planteamiento</h3>
                 </div>
             </div>
+
             <!--Columna 2, Fila 1-->
             <div class="ui-block-b">
                 <div class="ui-bar ui-bar-b">
                    <h3>Contenido</h3>
                 </div>
             </div>
-            <!--Columna 3, Fila 1-->
-            <div class="ui-block-c" >
-                <div class="ui-bar ui-bar-c">
-                  <h3>Resultados obtenidos</h3>
-                </div>
-            </div>
+            
             <!--Columna 1, Fila 2-->
             <div class="ui-block-a" >
-                <div class="ui-bar ui-bar-e">
+                <div class="ui-bar ui-bar-d">
                    <fieldset data-role="controlgroup">
-                       <legend>Detalles a evaluar:</legend>
-                        <input type="checkbox" name="objetivos" id="objetivos" class="custom" data-mini="true" data-theme="c"/>
+                       <input type="checkbox" name="objetivos" id="objetivos" class="custom" data-mini="true"/>
                             <label for="objetivos">Objetivos</label>
 
-                        <input type="checkbox" name="recursos" id="recursos" class="custom" data-mini="true" data-theme="d"/>
-                            <label for="recursos">Recursos utilizados</label>
+                        <input type="checkbox" name="destinatarios" id="destinatarios" class="custom" data-mini="true" />
+                            <label for="destinatarios">Destinatarios fijados</label>                        
 
-                        <input type="checkbox" name="destinatarios" id="destinatarios" class="custom" data-mini="true" data-theme="c"/>
-                            <label for="destinatarios">Destinatarios</label>
+                        <input type="checkbox" name="recursos" id="recursos" class="custom" data-mini="true"/>
+                            <label for="recursos">Recursos utilizados</label>                        
 
-                        <input type="checkbox" name="justificacion" id="justificacion" class="custom" data-mini="true" data-theme="c"/>
-                            <label for="justificacion">Justificación del proyecto</label>
+                        <input type="checkbox" name="justificacion" id="justificacion" class="custom" data-mini="true"/>
+                            <label for="justificacion">Justificación proyecto</label>
                     </fieldset>
+
                     <div data-role="fieldcontain">
-                        <label for="slider-3">¿El planteamiento es adecuado? <br/> Nota (sobre 2 ptos):</label>
-                        <input style="width:75px" width="35px" type="range" step="0.1" name="planteamiento" id="planteamiento3" value="1.0" min="0" max="2.0" data-theme="a" data-track-theme="b" />
+                        <label for="slider-3">¿Es adecuado? <br/> Nota (max 2ptos):</label>
+                        <input style="width:35px" width="35px" type="range" step="0.1" name="planteamiento" id="nota1_1" value="0.0" min="0" max="2.0" />
                     </div>
                 </div>
             </div>
+
             <!--Columna 2, Fila 2-->
             <div class="ui-block-b">
                 <div class="ui-bar ui-bar-b">
                    <fieldset data-role="controlgroup">
-                       <legend>Detalles a evaluar:</legend>
-                        <input type="checkbox" name="metodologia" id="metodologia" class="custom" data-mini="true" data-theme="c"/>
-                            <label for="metodologia">Metodología seguida</label>
 
-                        <input type="checkbox" name="claridad" id="claridad" class="custom" data-mini="true" data-theme="d"/>
+                       <input type="checkbox" name="claridad" id="claridad" class="custom" data-mini="true"/>
                             <label for="claridad">Claridad</label>
 
-                        <input type="checkbox" name="accionesRealizadas" id="accionesRealizadas" class="custom" data-mini="true" data-theme="c"/>
-                            <label for="accionesRealizadas">Actividades o acciones realizadas</label>
+                        <input type="checkbox" name="metodologia" id="metodologia" class="custom" data-mini="true" />
+                            <label for="metodologia">Metodología seguida</label>                        
 
-                        <input type="checkbox" name="documentacion" id="documentacion" class="custom" data-mini="true" data-theme="c"/>
+                        <input type="checkbox" name="accionesRealizadas" id="accionesRealizadas" class="custom" data-mini="true" />
+                            <label for="accionesRealizadas">Aciones realizadas</label>
+
+                        <input type="checkbox" name="documentacion" id="documentacion" class="custom" data-mini="true"/>
                             <label for="documentacion">Documentación elaborada</label>
-
                     </fieldset>
+
                     <div data-role="fieldcontain">
-                        <label for="slider-3">¿El contenido es correcto?<br/> Nota (sobre 2 ptos):</label>
-                        <input style="width:75px" width="35px" type="range" step="0.1" name="contenido" id="contenido" value="1.0" min="0" max="2.0" data-theme="a" data-track-theme="b" />
+                        <label for="slider-3">¿Es correcto?<br/> Nota (max 2ptos):</label>
+                        <input style="width:35px" width="75px" type="range" step="0.1" name="contenido" id="nota1_2" value="0.0" min="0" max="2.0" />
                     </div>
                 </div>
-            </div>
-            <!--Columna3, Fila 2-->
-            <div class="ui-block-c" >
-                <div class="ui-bar ui-bar-c">
-                   <fieldset data-role="controlgroup">
-                        <input type="checkbox" name="conclusiones" id="conclusiones" class="custom" data-mini="true" data-theme="c"/>
-                            <label for="conclusiones">Conclusiones</label>
-                                <textarea name="conclusiones" id="conclusiones-e" placeholder="¿A qué conclusiones ha llegado?">
-                                
-                            </textarea>
+            </div>            
+        </div>
 
-                        <input type="checkbox" name="objetivosConseguidos" id="objetivosConseguidos" class="custom" data-mini="true" data-theme="d"/>
-                            <label for="objetivosConseguidos">Objetivos conseguidos</label>
+    <!--Union columna 1 y 2-->
+        <div data-role="collapsible" data-theme="c" data-content-theme="c" data-iconpos="right" data-collapsed="false">
+             <h3>Resultados obtenidos</h3>
+             <p>                
+               <fieldset data-role="controlgroup">
+                    <input type="checkbox" name="conclusiones" id="conclusiones" class="custom" data-mini="true" />
+                        <label for="conclusiones">Conclusiones</label>
+                            <textarea name="conclusiones" id="conclusiones" placeholder="¿A qué conclusiones ha llegado?">
+                            
+                        </textarea>
 
-                        <input type="checkbox" name="consecucion" id="consecucion" class="custom" data-mini="true" data-theme="c"/>
-                            <label for="consecucion">Grado de consecución</label>
+                    <input type="checkbox" name="objetivosConseguidos" id="objetivosConseguidos" class="custom" data-mini="true"/>
+                        <label for="objetivosConseguidos">Objetivos conseguidos</label>
 
-                    </fieldset>
-                    <div data-role="fieldcontain">
-                        <label for="slider-3">¿Ha obtenido buenos resultados? <br/> Nota (sobre 2.5 ptos):</label>
-                        <input style="width:75px" width="35px" type="range" step="0.1" name="resultados" id="resultados" value="1.25" min="0" max="2.5" data-theme="a" data-track-theme="b" />
-                    </div>
+                    <input type="checkbox" name="consecucion" id="consecucion" class="custom" data-mini="true"/>
+                        <label for="consecucion">Grado de consecución</label>
+
+                </fieldset>
+                <div data-role="fieldcontain">
+                    <label for="slider-3">¿Ha obtenido buenos resultados? <br/> Nota (max 2.5ptos):</label>
+                    <input style="width:35px" width="75px" type="range" step="0.1" name="resultados" id="nota1_3" value="0.0" min="0" max="2.5"/>
                 </div>
-            </div>
+             </p>   
         </div>
     </div>
      
     <div data-role="footer">
-       <h4>&copy; Copyright - All rights reserved by Esy</h4>
+        <h4>&copy; Copyright - All rights reserved by Esy</h4>
     </div>
 </div>
 
 
 
 <!--PAGINA 2-->
-<div data-role="page" id="page2">
+<div data-role="page" id="page2" data-theme="a" >
    <div data-role="header">
-        <a href="#cancelar" data-transition="slideup" data-icon="delete" data-role="button" data-theme="a" data-rel="dialog">Cancelar</a>
+        <a href="#salir" data-transition="slideup" data-icon="delete" data-role="button" data-rel="dialog">Salir</a>
             <h1>Calidad de la presentación</h1>
-        <a href="#guardar" data-transition="slidedown" data-icon="check" data-role="button" data-theme="e" data-rel="dialog">Guardar</a>
+        <a href="#guardar" data-transition="slidedown" data-icon="check" data-role="button" data-rel="dialog">Guardar</a>
 
         <div data-role="navbar">
             <ul>
-                <li><a href="#page1" data-transition="pop">Contenido: 6,5 ptos</a></li>
-                <li><a href="#page2" data-transition="pop"class="ui-btn-active ui-state-persist">Calidad: 1 pto</a></li>
-                <li><a href="#page3" data-transition="pop">Expresion: 2,5 ptos</a></li>
+                <li><a href="#page1" data-transition="pop" data-theme="c">Contenido: 6,5 ptos</a></li>
+                <li><a href="#page2" data-transition="pop"data-theme="c" class="ui-btn-active ui-state-persist">Calidad: 1 pto</a></li>
+                <li><a href="#page3" data-transition="pop" data-theme="c">Expresion: 2,5 ptos</a></li>
             </ul>
         </div>
     </div>
 
-    <div data-role="content">    
-        <h1> Pantalla 2 </h1>
+    <div data-role="content" >    
+        <!--<h1> Pantalla 2 </h1>-->
             <div data-role="fieldcontain">
                 <fieldset data-role="controlgroup">
-                   <legend>Detalles a evaluar:</legend>
-
-                <div data-role="fieldcontain">
-                    <label for="organizacion">¿La organización del contenido es adecuada?</label>
-                        <select name="flip-3" id="flip-3" data-role="slider" data-theme="a" data-mini="true">
-                            <option value="no">No</option>
-                            <option value="si">Sí</option>
-                        </select> 
-                </div>
-
-                <div data-role="fieldcontain">
-                   <label for="presentacionEscrita">¿La presentación escrita es correcta?</label>
-                        <select name="flip-3" id="flip-3" data-role="slider" data-theme="a" data-mini="true">
-                            <option value="no">No</option>
-                            <option value="si">Sí</option>
-                        </select> 
-                </div>
-
-                <div data-role="fieldcontain">
-                    <label for="claridadTexto">¿El texto está bien redactado?</label>
-                        <select name="flip-3" id="flip-3" data-role="slider" data-theme="a" data-mini="true">
-                            <option value="no">No</option>
-                            <option value="si">Sí</option>
-                        </select> 
-                </div>
-                
-
+                    <div data-role="fieldcontain">
+                        <label for="organizacion">¿La organización del contenido es adecuada?</label>
+                            <select name="organizacion1" id="organizacion1-3" data-role="slider" data-mini="true">
+                                <option value="no">No</option>
+                                <option value="si">Sí</option>
+                            </select> 
+                    </div>
+                    <div data-role="fieldcontain">
+                       <label for="presentacionEscrita">¿La presentación escrita es correcta?</label>
+                            <select name="presentacionEscrita1" id="presentacionEscrita1" data-role="slider" data-mini="true">
+                                <option value="no">No</option>
+                                <option value="si">Sí</option>
+                            </select> 
+                    </div>
+                    <div data-role="fieldcontain">
+                        <label for="claridadTexto">¿El texto está bien redactado?</label>
+                            <select name="claridadTexto1" id="claridadTexto1" data-role="slider" data-mini="true">
+                                <option value="no">No</option>
+                                <option value="si">Sí</option>
+                            </select> 
+                    </div>  
                 </fieldset>
 
                 <div data-role="fieldcontain">
-                    <label for="slider-3">En general, ¿qué calidad posee la presentación? Nota:</label>
-                    <input style="width:75px" width="35px" type="range" step="0.1" name="calidad" id="calidad" value="0.5" min="0" max="1.0" data-theme="a" data-track-theme="b" />
+                    <label for="slider-3">¿Qué calidad posee la presentación? Nota:</label>
+                    <input style="width:75px" width="75px" type="range" step="0.1" name="calidad" id="nota2_1" value="0.0" min="0" max="1.0"/>
                 </div>
             </div>
     </div>
@@ -377,24 +265,145 @@
 
 
 <!--PAGINA 3-->
-<div data-role="page" id="page3">
+<div data-role="page" id="page3" data-theme="a">
    <div data-role="header">
-        <a href="#cancelar" data-transition="slideup" data-icon="delete" data-role="button" data-theme="a" data-rel="dialog">Cancelar</a>
+        <a href="#salir" data-transition="slideup" data-icon="delete" data-role="button" data-theme="a" data-rel="dialog">Salir</a>
             <h1>Expresión oral</h1>
         <a href="#guardar" data-transition="slidedown" data-icon="check" data-role="button" data-theme="e" data-rel="dialog">Guardar</a>
 
         <div data-role="navbar">
             <ul>
-                <li><a href="#page1" data-transition="pop">Contenido: 6,5 ptos</a></li>
-                <li><a href="#page2" data-transition="pop">Calidad: 1pto</a></li>
-                <li><a href="#page3" data-transition="pop"class="ui-btn-active ui-state-persist">Expresión: 2,5 ptos</a></li>
+                <li><a href="#page1" data-transition="pop" data-theme="c">Contenido: 6,5 ptos</a></li>
+                <li><a href="#page2" data-transition="pop" data-theme="c">Calidad: 1pto</a></li>
+                <li><a href="#page3" data-transition="pop" data-theme="c" class="ui-btn-active ui-state-persist">Expresión: 2,5 ptos</a></li>
             </ul>
         </div>
     </div>
 
     <div data-role="content">    
-        <h1> Pantalla 3 </h1>
-       
+        <!--<h1> Pantalla 3 </h1>-->
+        <div data-role="collapsible-set">
+            <div data-role="collapsible">
+                <h3>Entrada</h3>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                    <input type="checkbox" name="entrada" id="entrada" class="custom" data-mini="true"/>
+                        <label for="entrada">¿Es correcta la entrada del alumno?</label>
+
+                    <input type="checkbox" name="indumentaria" id="indumentaria" class="custom" data-mini="true"/>
+                        <label for="indumentaria">¿Su indumentaria es adecuada?</label>
+                    </fieldset>
+                </div>
+            </div>
+
+            <div data-role="collapsible" data-theme="c" data-content-theme="c">
+                <h3>Introducción</h3>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">                       
+                        <input type="checkbox" name="atractiva" id="atractiva" class="custom" data-mini="true"/>
+                            <label for="atractiva">¿Es atractiva?</label>
+                        <input type="checkbox" name="claridadP" id="claridadP" class="custom" data-mini="true"/>
+                            <label for="claridadP">¿Queda claro el proyecto?</label>        
+                    </fieldset>                         
+                </div>
+            </div>
+            
+            <div data-role="collapsible">
+                <h3>Desarrollo</h3>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <input type="checkbox" name="ordenIdeas" id="ordenIdeas" class="custom" data-mini="true"/>
+                            <label for="ordenIdeas">Orden en las ideas.</label>
+
+                        <input type="checkbox" name="claridadExposicion" id="claridadExposicion" class="custom" data-mini="true" />
+                            <label for="claridadExposicion">Claridad en la exposición.</label>
+
+                        <input type="checkbox" name="terminosTecnicos" id="terminosTecnicos" class="custom" data-mini="true"/>
+                            <label for="terminosTecnicos">Aclaración de términos técnicos.</label>
+                    </fieldset>               
+                </div>       
+            </div>
+
+            <div data-role="collapsible" data-theme="c" data-content-theme="c">
+                <h3>Conclusión</h3>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                       <input type="checkbox" name="claridadObj" id="claridadObj" class="custom" data-mini="true"/>
+                            <label for="claridadObj">¿Queda claro el objetivo del proyecto?</label>
+                    
+
+                        <input type="checkbox" name="vendeBien" id="vendeBien" class="custom" data-mini="true"/>
+                            <label for="vendeBien">¿Lo vende bien?</label>
+                    </fieldset>               
+                </div>       
+            </div>
+        
+            <div data-role="collapsible">
+                <h3>Expresión oral</h3>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <input type="checkbox" name="entonacion" id="entonacion" class="custom" data-mini="true"/>
+                            <label for="entonacion">Entonación.</label>
+
+                        <input type="checkbox" name="volumen" id="volumen" class="custom" data-mini="true"/>
+                            <label for="volumen">Volumen.</label>
+
+                        <input type="checkbox" name="velocidad" id="velocidad" class="custom" data-mini="true"/>
+                            <label for="velocidad">Velocidad.</label>
+
+                        <input type="checkbox" name="vacilacionVoz" id="vacilacionVoz" class="custom" data-mini="true"/>
+                            <label for="vacilacionVoz">Vacilación en la voz.</label>
+
+                        <input type="checkbox" name="pausas" id="pausas" class="custom" data-mini="true"/>
+                            <label for="pausas">Pausas.</label>
+
+                        <input type="checkbox" name="muletillas" id="muletillas" class="custom" data-mini="true"/>
+                            <label for="muletillas">Utilización de muletillas.</label>
+                    </fieldset>               
+                </div>       
+            </div>
+
+            <div data-role="collapsible" data-theme="c" data-content-theme="c">
+                <h3>Lenguaje no verbal</h3>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <input type="checkbox" name="mirada" id="mirada" class="custom" data-mini="true"/>
+                            <label for="mirada">¿Dirige la mirada a todo el auditorio?</label>
+
+                        <input type="checkbox" name="sonrisa" id="sonrisa" class="custom" data-mini="true"/>
+                            <label for="sonrisa">Sonrisa/expresión facial positiva.</label>
+
+                        <input type="checkbox" name="posicion" id="posicion" class="custom" data-mini="true"/>
+                            <label for="posicion">Posición correcta del cuerpo.</label>
+
+                        <input type="checkbox" name="nervioso" id="nervioso" class="custom" data-mini="true"/>
+                            <label for="nervioso">Tics, gestos nerviosos.</label>
+                    </fieldset>               
+                </div>       
+            </div>
+
+            <div data-role="collapsible">
+                <h3>Finalización</h3>
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup">
+                        <input type="checkbox" name="duracion" id="duracion" class="custom" data-mini="true"/>
+                            <label for="duracion">¿La duración se adecua a los estipulado?</label>
+
+                        <input type="checkbox" name="atencion" id="atencion" class="custom" data-mini="true"/>
+                            <label for="atencion">¿Logra atraer la atención del público?</label>
+
+                        <input type="checkbox" name="preguntas" id="preguntas" class="custom" data-mini="true"/>
+                            <label for="preguntas">¿Responde de forma coherente?</label>
+                    </fieldset>               
+                </div>       
+            </div>
+
+        </div> 
+
+        <div data-role="fieldcontain">
+            <label for="slider-3">En general, ¿se ha expresado de modo correcto? Nota:</label>
+            <input style="width:35px" width="75px" type="range" step="0.1" name="calidad" id="nota3_1" value="0.0" min="0" max="2.5"/>
+        </div>   
     </div>
 
     <div data-role="footer">
@@ -404,58 +413,43 @@
 
 
 
+<!--PAGINA SALIR-->
+<div data-role="page" id="salir" data-theme="b">
+    <div data-role="header">        
+        <h1>Salir</h1>        
+    </div>
+
+    <div data-role="content">
+        <p> ¿Está seguro de que desea salir de la corección en curso?</p>
+
+        <a data-role="button" data-icon="delete" data-theme="c" href="#acceder" data-iconpos="right">Sí</a>
+        <a data-role="button" data-icon="back" data-theme="d" data-rel="back">No</a>
+        
+    </div>
+</div>
+
+
+
 <!--PAGINA GUARDAR-->
-<div data-role="page" id="guardar">
+<div data-role="page" id="guardar" data-theme="b">
     <div data-role="header">        
         <h1>Información</h1>        
     </div>
 
     <div data-role="content">
-        <h2>¡Corección guardada correctamente!</h2>
+        <h2>¡Corección de <span id="alumno"></span> guardada correctamente!</h2>
+        <h1>La nota es <span id="nota"></span> sobre 10.</h1>
+
         <p>¿Qué desea hacer a continuación?</p>
 
-        <a data-role="button" data-icon="forward" data-theme="e" data-rel="back" data-shadow="true" data-iconpos="right">Continuar</a>
-        <a data-role="button" data-icon="home" data-theme="b" href="#acceder" data-shadow="true">Finalizar</a>
+        <a data-role="button" data-icon="forward" data-theme="c" data-rel="back" data-shadow="true" data-iconpos="right">Continuar</a>
+        <a data-role="button" data-icon="home" data-theme="d" href="#acceder" data-shadow="true">Finalizar</a>
         
     </div>
 </div>
 
-
-
-<!--PAGINA CANCELAR-->
-<div data-role="page" id="cancelar">
-    <div data-role="header">
-        <h1>Eliminar</h1>        
-    </div>
-
-    <div data-role="content">
-        <p> ¿Está seguro de que desea eliminar la corección en curso?</p>
-        
-        <a data-role="button" data-icon="delete" data-theme="e" href="#acceder" data-iconpos="right">Sí</a>
-        <a data-role="button" data-icon="back" data-theme="b" data-rel="back">No</a>
-    </div>
-</div>
-
-<!--PAGINA RECORDAR PASS-->
-<div data-role"page" id="recordarPass">
-    <div data-role="header">
-        <h1>Recordar Contraseña</h1>        
-    </div>
-
-    <div data-role="content">
-        <div class="ui-btn-inner ui-li">
-            <div class="ui-btn-text">
-                <a class="ui-link-inherit" href="mailto:jessicasilga@gmail.com&subject=RecordarPassword">
-                    Pedir nueva contraseña
-                </a>
-            </div>
-        <span class="ui-icon ui-icon-arrow-r"></span>
-        </div>
-    </div>
-</div>
-
-
-
+<!--Cargo el js con las funciones-->
+<script src="scripts/main.js"></script>
 
 </body>
 </html>

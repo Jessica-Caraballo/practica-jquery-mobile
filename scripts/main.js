@@ -31,7 +31,19 @@ $("#evaluar").click(function(e) {
 });
 
 /*Muestra la nota en la pagina final, y la actualiza*/
-$('#pagina').on("pageshow",function(){
+$("#pagina").on("pageshow" , function() {   
+    /* Cambios en la valoracion del contenido*/
+    $("input[id*='nota']").on('change', function() { 
+        $('#nota').html(
+             parseFloat($('#nota1_1').val())
+            +parseFloat($('#nota1_2').val())
+            +parseFloat($('#nota1_3').val())
+            +parseFloat($('#nota2_1').val())
+            +parseFloat($('#nota3_1').val())
+            );
+    });
+});
+/*$('#pagina').on("pageshow",function(){
     $('#nota1_1').on('change', function(){
         $('#nota').html(
              parseFloat($('#nota1_1').val())
@@ -77,4 +89,4 @@ $('#pagina').on("pageshow",function(){
             +parseFloat($('#nota3_1').val())
             );
     });            
-});
+});*/
